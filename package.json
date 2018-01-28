@@ -1,0 +1,17 @@
+{
+  "name": "web-socket-server",
+  "version": "1.0.0",
+  "description": "Brakli web socket server",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "react": "^16.2.0",
+    "react-com": "^1.0.6",
+    "ws": "^4.0.0"
+  }
+}
