@@ -14,6 +14,7 @@ export const App = ({state = {}}) => {
   
   return (
     <main>
+      <h1>Brakli</h1>
       {
         Object.keys(state).map(key => {
           const value = state[key]

@@ -6,8 +6,8 @@ export const Channel = ({
 }) => {
 
   return (
-    <div style={{'margin': '50px 0'}}>
-      <p>{text}</p>
+    <div style={{'margin': '0 0 50px'}}>
+      <h2>{text}</h2>
       {children}
     </div>
   )
