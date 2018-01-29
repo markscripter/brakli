@@ -6,7 +6,7 @@ const ControllerService = (app) => {
     res.send(Main({
       title: 'Brakli',
       stylesheetURL: '',
-      scriptURL: ''
+      scriptURL: '/js/app.js'
     }))
   })
 }

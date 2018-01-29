@@ -13,26 +13,7 @@ const Main = ({
     <link rel='stylesheet' href='${stylesheetURL}'/>
   </head>
   <body>
-    <article id='page'>
-      <div style='width: 100px; height: 200px; background-color: yellow;' id='t'>
-        testsssss
-      </div>
-    </article>
-    <script>
-      const socket = new WebSocket('ws://localhost:8880')
-
-      // Connection opened
-      socket.addEventListener('open', e => socket.send('Hello Server!'))
-
-      // Listen for messages
-      socket.addEventListener('message', e => console.log('Message from server ', event.data))
-
-      document
-        .getElementById('t')
-        .addEventListener('click',
-          e => socket.send(JSON.stringify({a: 'b'}))
-        )
-    </script>
+    <article id='app'></article>
     <script src='${scriptURL}'></script>
   </body>
 </html>

@@ -6,5 +6,5 @@
   mod: 1,
   theme: 1,
   video: 1,
-  volume: 7s
+  volume: 7
 }
