@@ -948,16 +948,20 @@ var _reactDom = __webpack_require__(18);
 
 var _app = __webpack_require__(27);
 
+var _webSocketParser = __webpack_require__(31);
+
+var _webSocketParser2 = _interopRequireDefault(_webSocketParser);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var URL = 'ws://localhost:8880';
-
 var socket = new WebSocket(URL);
 
 // Connection opened
 socket.addEventListener('open', function (e) {
   console.log('Connected to ' + URL);
   socket.send('Connected to ' + URL);
+  renderApp(window.INITIAL_STATE || {});
 });
 
 // Connection closed
@@ -973,10 +977,12 @@ socket.addEventListener('error', function (e) {
 // Listen for messages
 socket.addEventListener('message', function (e) {
   console.log('Message from server ', e.data);
+  renderApp(JSON.parse(e.data));
 });
 
+// render app with new state
 var renderApp = function renderApp(state) {
-  (0, _reactDom.hydrate)(_react2.default.createElement(_app.App, { state: state }), document.getElementById('app'));
+  return (0, _reactDom.hydrate)(_react2.default.createElement(_app.App, { state: state }), document.getElementById('app'));
 };
 
 /***/ }),
@@ -18305,23 +18311,36 @@ var _react2 = _interopRequireDefault(_react);
 
 var _button = __webpack_require__(28);
 
-var _channel = __webpack_require__(29);
+var _slider = __webpack_require__(29);
+
+var _channel = __webpack_require__(30);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = exports.App = function App() {
+var App = exports.App = function App(_ref) {
+  var _ref$state = _ref.state,
+      state = _ref$state === undefined ? {} : _ref$state;
+
   var onClickHandler = function onClickHandler(e) {
     console.log(e);
-    debugger;
   };
+
+  var onChangeHandler = function onChangeHandler(e) {
+    console.log(e);
+  };
+
   return _react2.default.createElement(
-    'div',
+    'main',
     null,
-    _react2.default.createElement(
-      _channel.Channel,
-      { text: 'Volume' },
-      _react2.default.createElement(_button.Button, { onClick: onClickHandler, text: '1', styles: { textDecoration: 'underline' } })
-    )
+    Object.keys(state).map(function (key) {
+      var value = state[key];
+      return _react2.default.createElement(
+        _channel.Channel,
+        { key: key, text: key },
+        _react2.default.createElement(_button.Button, { onClick: onClickHandler, text: value }),
+        _react2.default.createElement(_slider.Slider, { onChange: onChangeHandler, value: value })
+      );
+    })
   );
 };
 
@@ -18376,6 +18395,43 @@ var Button = exports.Button = function Button(_ref) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Slider = undefined;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var BASE_STYLES = {
+  backgroundColor: 'blue',
+  color: 'white'
+};
+
+var Slider = exports.Slider = function Slider(_ref) {
+  var _ref$styles = _ref.styles,
+      styles = _ref$styles === undefined ? {} : _ref$styles,
+      _ref$onChange = _ref.onChange,
+      onChange = _ref$onChange === undefined ? function () {} : _ref$onChange,
+      _ref$value = _ref.value,
+      value = _ref$value === undefined ? '' : _ref$value;
+
+
+  var STYLES = Object.assign({}, BASE_STYLES, styles);
+
+  return _react2.default.createElement('input', { type: 'range', style: STYLES, min: '0', max: '10', value: value, onChange: onChange });
+};
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.Channel = undefined;
 
 var _react = __webpack_require__(1);
@@ -18402,6 +18458,20 @@ var Channel = exports.Channel = function Channel(_ref) {
     children
   );
 };
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var webSocketParser = function webSocketParser(message) {
+  // parse and return message
+  return message;
+};
+
+module.exports = webSocketParser;
 
 /***/ })
 /******/ ]);

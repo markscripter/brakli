@@ -18,6 +18,8 @@ const WebSocketService = (server) => {
     socket.isAlive = true
     
     socket.on('error', socket => {
+      // an error happened, log it but don't worry?
+      
       console.log('error:', socket)
     });
     
@@ -36,7 +38,7 @@ const WebSocketService = (server) => {
     })
   })
 
-  const interval = setInterval(() => {
+ setInterval(() => {
     wss.clients.forEach(socket => {
       if (socket.isAlive === false) socket.terminate()
 
