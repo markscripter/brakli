@@ -1,7 +1,6 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
 import { App } from './app.jsx'
-import webSocketParser from '../utilities/parsers/webSocketParser'
 
 const URL = 'ws://localhost:8880'
 const socket = new WebSocket(URL)
@@ -9,7 +8,6 @@ const socket = new WebSocket(URL)
 // Connection opened
 socket.addEventListener('open', e => {
   console.log(`Connected to ${URL}`)
-  socket.send(`Connected to ${URL}`)
   renderApp(window.INITIAL_STATE || {})
 })
 
