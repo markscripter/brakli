@@ -1,7 +1,42 @@
 {
-  "color": 1,
-  "mod": 1,
-  "theme": 1,
-  "video": 1,
-  "volume": 7
+  "color": {
+    "index": 1,
+    "total": 10,
+    "resources": {
+      "thumbnailURL": "",
+      "feedURL": ""
+    }
+  },
+  "mod": {
+    "index": 1,
+    "total": 10,
+    "resources": {
+      "thumbnailURL": "",
+      "feedURL": ""
+    }
+  },
+  "theme": {
+    "index": 1,
+    "total": 10,
+    "resources": {
+      "thumbnailURL": "",
+      "feedURL": ""
+    }
+  },
+  "video": {
+    "index": 1,
+    "total": 10,
+    "resources": {
+      "thumbnailURL": "",
+      "feedURL": ""
+    }
+  },
+  "volume": {
+    "index": 7,
+    "total": 10,
+    "resources": {
+      "thumbnailURL": "",
+      "feedURL": ""
+    }
+  }
 }

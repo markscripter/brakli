@@ -2,6 +2,8 @@ import React from 'react'
 import { hydrate } from 'react-dom'
 import { App } from './app.jsx'
 
+let state = {}
+
 const URL = 'ws://localhost:8880'
 const socket = new WebSocket(URL)
 
@@ -27,6 +29,11 @@ socket.addEventListener('message', e => {
   renderApp(JSON.parse(e.data))
 })
 
+const handleStateChange = updatedState => {
+  socket.send(JSON.stringify(updatedState))
+  renderApp(updatedState)
+}
+
 // render app with new state
 const renderApp = state =>
-  hydrate(<App state={state} />, document.getElementById('app'))
+  hydrate(<App state={state} onStateChange={handleStateChange} />, document.getElementById('app'))
