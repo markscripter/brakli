@@ -19,7 +19,7 @@ export const App = ({
     onStateChange(returnedState)
     return returnedState
   }
-
+  debugger
   return (
     <main>
       <h1>Brakli</h1>

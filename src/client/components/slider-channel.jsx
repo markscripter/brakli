@@ -20,22 +20,21 @@ export class SliderChannel extends Component {
   render () {
     const {
       styles = {},
-      text = ''
+      text = '',
+      channel
     } = this.props
-
-    const { value } = this.state
 
     const STYLES = Object.assign({}, BASE_STYLES, styles)
 
     return (
       <Channel text={text}>
-        <input type='range' style={STYLES} min='0' max='10' value={value} onChange={this.onChangeHandler} />
+        <input type='range' style={STYLES} min='0' max={channel.total} value={channel.index} onChange={this.onChangeHandler} />
       </Channel>
     )
   }
 
   onChangeHandler (e) {
     this.setState({ value: e.target.value })
-    this.props.onChange(this.props.text, e.target.value)
+    this.props.onChange(this.props.text, Number(e.target.value))
   }
 }

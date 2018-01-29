@@ -8,7 +8,7 @@
     }
   },
   "mod": {
-    "index": 1,
+    "index": 2,
     "total": 10,
     "resources": {
       "thumbnailURL": "",
@@ -16,7 +16,7 @@
     }
   },
   "theme": {
-    "index": 1,
+    "index": 3,
     "total": 10,
     "resources": {
       "thumbnailURL": "",
@@ -24,7 +24,7 @@
     }
   },
   "video": {
-    "index": 1,
+    "index": 4,
     "total": 10,
     "resources": {
       "thumbnailURL": "",
@@ -32,7 +32,7 @@
     }
   },
   "volume": {
-    "index": 7,
+    "index": 5,
     "total": 10,
     "resources": {
       "thumbnailURL": "",
