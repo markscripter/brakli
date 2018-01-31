@@ -1,5 +1,5 @@
 import React from 'react'
-import { SliderChannel } from './components/slider-channel.jsx'
+import { SliderSwitch } from './components/slider-switch.jsx'
 
 export const App = ({
   state = {},
@@ -19,13 +19,25 @@ export const App = ({
     onStateChange(returnedState)
     return returnedState
   }
-  debugger
+
+  const STYLES = {
+    'display': 'grid',
+    'gridTemplateRows': `repeat(${Object.keys(state).length}, 1fr)`
+  }
+
   return (
-    <main>
-      <h1>Brakli</h1>
+    <main style={STYLES}>
       {
-        Object.keys(state).map(key =>
-          <SliderChannel key={key} onChange={onChangeHandler} text={key} channel={state[key]} />
+        Object.keys(state).map((key, idx) =>
+          <SliderSwitch
+            key={key}
+            text={key}
+            onChange={onChangeHandler}
+            channel={state[key]}
+            styles={{
+              'gridRow': `${idx + 1}`
+            }}
+          />
         )
       }
     </main>

@@ -4,8 +4,8 @@ module.exports = [
   {
     entry: './src/client/index.js',
     output: {
-      path: path.join(__dirname, 'public/js'),
-      filename: 'app.js' 
+      path: path.join(__dirname, 'src/public/js'),
+      filename: 'app.js'
     },
     module: {
       rules: [
@@ -25,7 +25,7 @@ module.exports = [
     entry: './src/client/app.jsx',
     output: {
       path: path.join(__dirname, 'src/server/bundles'),
-      filename: 'app.js' 
+      filename: 'app.js'
     },
     module: {
       rules: [

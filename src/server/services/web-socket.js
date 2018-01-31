@@ -1,12 +1,9 @@
-const http = require('http')
-const url = require('url')
-const path = require('path')
 const WebSocket = require('ws')
 
 const WebSocketService = (server) => {
   const wss = new WebSocket.Server({ server })
 
-  wss.broadcast = message => 
+  wss.broadcast = message =>
     wss.clients.forEach(socket => {
       if (socket.readyState === WebSocket.OPEN) {
         socket.send(message)
@@ -16,13 +13,13 @@ const WebSocketService = (server) => {
   wss.on('connection', (socket, req) => {
     console.log('connection started')
     socket.isAlive = true
-    
+
     socket.on('error', socket => {
       // an error happened, log it but don't worry?
-      
+
       console.log('error:', socket)
-    });
-    
+    })
+
     socket.on('pong', () => {
       console.log('socket alive')
       socket.isAlive = true
@@ -38,7 +35,7 @@ const WebSocketService = (server) => {
     })
   })
 
- setInterval(() => {
+  setInterval(() => {
     wss.clients.forEach(socket => {
       if (socket.isAlive === false) socket.terminate()
 

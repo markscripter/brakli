@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { Channel } from './channel.jsx'
+import { Switch } from './switch.jsx'
+import { CurrentFeed } from './current-feed.jsx'
 
 const BASE_STYLES = {
   backgroundColor: 'blue',
   color: 'white'
 }
 
-export class SliderChannel extends Component {
+export class SliderSwitch extends Component {
   constructor (props) {
     super(props)
 
@@ -24,12 +25,11 @@ export class SliderChannel extends Component {
       channel
     } = this.props
 
-    const STYLES = Object.assign({}, BASE_STYLES, styles)
-
     return (
-      <Channel text={text}>
-        <input type='range' style={STYLES} min='0' max={channel.total} value={channel.index} onChange={this.onChangeHandler} />
-      </Channel>
+      <Switch text={text} styles={styles}>
+        <input type='range' list='tickmarks' style={BASE_STYLES} min='0' max={channel.total} value={channel.index} onChange={this.onChangeHandler} />
+        <CurrentFeed text={text} {...channel.resources} />
+      </Switch>
     )
   }
 

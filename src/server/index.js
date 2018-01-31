@@ -6,7 +6,7 @@ const ControllerService = require('./services/controller')
 const app = express()
 const server = http.createServer(app)
 
-app.use(express.static('public'))
+app.use(express.static('src/public'))
 
 ControllerService(app)
 WebSocketService(server)
