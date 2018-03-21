@@ -1,0 +1,11 @@
+.c-current-feed {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: var(--black);
+  color: var(--white);
+}
+
+.c-current-feed > figcaption {}
+.c-current-feed > img {}
+.c-current-feed > video {}

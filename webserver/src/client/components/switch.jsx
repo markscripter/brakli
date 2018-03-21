@@ -7,10 +7,8 @@ export const Switch = ({
 }) => {
   return (
     <div className='c-switch' style={styles}>
-      <h2>{text}</h2>
-      <section>
-        {children}
-      </section>
+      <span>{text}</span>
+      {children}
     </div>
   )
 }

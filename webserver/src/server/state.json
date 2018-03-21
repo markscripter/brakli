@@ -1,42 +1,22 @@
 {
   "color": {
     "index": 1,
-    "total": 10,
-    "resources": {
-      "thumbnailURL": "",
-      "feedURL": ""
-    }
+    "total": 1
   },
-  "mod": {
+  "modifier": {
     "index": 2,
-    "total": 10,
-    "resources": {
-      "thumbnailURL": "",
-      "feedURL": ""
-    }
+    "total": 2
   },
   "theme": {
     "index": 3,
-    "total": 10,
-    "resources": {
-      "thumbnailURL": "",
-      "feedURL": ""
-    }
+    "total": 3
   },
   "video": {
     "index": 4,
-    "total": 10,
-    "resources": {
-      "thumbnailURL": "",
-      "feedURL": ""
-    }
+    "total": 4
   },
   "volume": {
     "index": 5,
-    "total": 10,
-    "resources": {
-      "thumbnailURL": "",
-      "feedURL": ""
-    }
+    "total": 5
   }
 }

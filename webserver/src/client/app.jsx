@@ -5,8 +5,6 @@ export const App = ({
   state = {},
   onStateChange = () => {}
 }) => {
-  //
-
   const onChangeHandler = (chan, value) => {
     const returnedState = {}
     Object.keys(state).map(k => {
@@ -22,7 +20,8 @@ export const App = ({
 
   const STYLES = {
     'display': 'grid',
-    'gridTemplateRows': `repeat(${Object.keys(state).length}, 1fr)`
+    'gridTemplateRows': `repeat(${Object.keys(state).length}, 1fr)`,
+    'height': '100vh'
   }
 
   return (

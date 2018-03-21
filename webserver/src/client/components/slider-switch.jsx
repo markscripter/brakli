@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Switch } from './switch.jsx'
-import { CurrentFeed } from './current-feed.jsx'
 
 const BASE_STYLES = {
   backgroundColor: 'blue',
@@ -27,8 +26,7 @@ export class SliderSwitch extends Component {
 
     return (
       <Switch text={text} styles={styles}>
-        <input type='range' list='tickmarks' style={BASE_STYLES} min='0' max={channel.total} value={channel.index} onChange={this.onChangeHandler} />
-        <CurrentFeed text={text} {...channel.resources} />
+        <input type='range' style={BASE_STYLES} min='0' max={channel.total} value={channel.index} onChange={this.onChangeHandler} />
       </Switch>
     )
   }
